@@ -1,70 +1,72 @@
 import { Link } from "react-router-dom";
 
 const CardCategori = () => {
+  // Data untuk setiap kartu
+  const cards = [
+    {
+      title: "IPA",
+      teacher: "Anwar Fuadi, S.Pd",
+      schedule: "Hari Ini • 08.00–10.00",
+      isActive: true, // Tombol aktif
+    },
+    {
+      title: "IPA",
+      teacher: "Anwar Fuadi, S.Pd",
+      schedule: "Hari Ini • 08.00–10.00",
+      isActive: false, // Tombol nonaktif
+    },
+    {
+      title: "IPA",
+      teacher: "Anwar Fuadi, S.Pd",
+      schedule: "Hari Ini • 08.00–10.00",
+      isActive: false, // Tombol nonaktif
+    },
+  ];
+
   return (
-    <div className="flex justify-center bg-[#EBF3FC] ">
-      <div className="flex flex-col justify-center items-center w-full p-2 px-3 lg:px-0">
-        <div className="flex flex-grow justify-between items-center mt-[30px] w-full max-w-[1000px]">
+    <div className="flex justify-center bg-[#EBF3FC] py-6">
+      <div className="flex flex-col items-center w-full p-4">
+        {/* Header */}
+        <div className="flex justify-between items-center w-full max-w-[1000px] mb-6">
           <h2 className="text-xl font-bold">Mapel Hari Ini</h2>
           <Link
             to="/class"
-            className=" font-extrabold text-xs max-w-fit text-darkblue"
+            className="font-extrabold text-xs text-darkblue hover:underline"
           >
             Lihat Semua
           </Link>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center space-x-2 ">
-          <div className="bg-white shadow-md rounded-lg p-12 w-96 text-gray-800 mt-4">
-            <h2 className="text-lg font-bold mb-2">IPA</h2>
-            <div className="flex items-center text-sm text-gray-500 mb-1">
-              <div className="mr-2">
-                <span>Anwar Fuadi, S.Pd</span>
+        {/* Cards */}
+        <div className="flex flex-wrap justify-center items-center gap-4">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-lg p-6 w-full md:w-96 text-gray-800"
+            >
+              {/* Title */}
+              <h2 className="text-lg font-bold mb-2">{card.title}</h2>
+              {/* Teacher */}
+              <div className="text-sm text-gray-500 mb-1">
+                <span>{card.teacher}</span>
               </div>
-            </div>
-            <div className="flex items-center text-sm text-gray-500 mb-4">
-              <div className="mr-2">
-                <span>Hari Ini • 08.00–10.00</span>
+              {/* Schedule */}
+              <div className="text-sm text-gray-500 mb-4">
+                <span>{card.schedule}</span>
               </div>
+              {/* Button */}
+              <Link
+                to="/class"
+                className={`w-full py-2 rounded-lg font-semibold transition duration-200 ${
+                  card.isActive
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "bg-gray-400 text-white hover:bg-blue-700"
+                }`}
+              >
+                Ikuti Kelas
+              </Link>
             </div>
-            <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 mb-2">
-              Ikuti Kelas
-            </button>
-          </div>
-
-          <div className="bg-white shadow-md rounded-lg p-12 w-96 text-gray-800 mt-4 ">
-            <h2 className="text-lg font-bold mb-2">IPA</h2>
-            <div className="flex items-center text-sm text-gray-500 mb-1">
-              <div className="mr-2">
-                <span>Anwar Fuadi, S.Pd</span>
-              </div>
-            </div>
-            <div className="flex items-center text-sm text-gray-500 mb-4">
-              <div className="mr-2">
-                <span>Hari Ini • 08.00–10.00</span>
-              </div>
-            </div>
-            <button className="w-full bg-gray-400 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
-              Ikuti Kelas
-            </button>
-          </div>
-
-          <div className="bg-white shadow-md rounded-lg p-12 w-96 text-gray-800 mt-4 ">
-            <h2 className="text-lg font-bold mb-2">IPA</h2>
-            <div className="flex items-center text-sm text-gray-500 mb-1">
-              <div className="mr-2">
-                <span>Anwar Fuadi, S.Pd</span>
-              </div>
-            </div>
-            <div className="flex items-center text-sm text-gray-500 mb-4">
-              <div className="mr-2">
-                <span>Hari Ini • 08.00–10.00</span>
-              </div>
-            </div>
-            <button className="w-full bg-gray-400 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
-              Ikuti Kelas
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </div>
