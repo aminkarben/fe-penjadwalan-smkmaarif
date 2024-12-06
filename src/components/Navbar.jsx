@@ -30,6 +30,12 @@ const Navbar = () => {
             Jadwal
           </a>
         </Link>
+
+        <Link to="/report">
+          <a href="#" className="hover:underline">
+            Report
+          </a>
+        </Link>
       </div>
 
       <div className="flex items-center gap-2">

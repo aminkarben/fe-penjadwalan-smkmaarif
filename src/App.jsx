@@ -6,7 +6,7 @@ import TugasDetail from "./pages/Detail/TugasDetail";
 import Class from "./pages/Course/Class";
 import Tugas from "./pages/Course/Tugas";
 import Schedule from "./pages/Schedule/schedule";
-import Report from "./pages/Report/Report";
+import Report from "./pages/Report/report";
 function App() {
   return (
     <>
